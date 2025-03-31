@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NetMauiPhi.Views.Phi4View"
+             xmlns:vm="clr-namespace:NetMauiPhi.ViewModels"
+             x:DataType="vm:Phi4ViewModel"
+             Title="{Binding Title}">
+    <Grid RowDefinitions="Auto,Auto,*"
+          ColumnDefinitions="*,2*,3*"
+          ColumnSpacing="10"
+          RowSpacing="10"
+          Margin="10"
+          Padding="10">
+        
+        <Label Grid.Row="0" 
+               Grid.Column="0" 
+               VerticalTextAlignment="Center"
+               Text="Your message:" />
+        
+        <Entry Grid.Row="0" 
+               Grid.Column="1" 
+               WidthRequest="300"
+               Text="{Binding Prompt}" />
+
+        <Button Grid.Row="1" 
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                Text="Ask Soccer Agent" 
+                WidthRequest="200"
+                Command="{Binding AskSoccerAgentCommand}" />
+
+        <Button Grid.Row="1" 
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                Text="Ask AI Agent" 
+                WidthRequest="200"
+                Command="{Binding AskAIAgentCommand}" />
+        
+        <ActivityIndicator Grid.Row="1" 
+                           Grid.Column="2"
+                           Color="Green"
+                           IsRunning="{Binding IsBusy}"
+                           IsVisible="{Binding IsBusy}" />
+
+        <Label Grid.Row="2" 
+               Grid.Column="0"
+               Grid.ColumnSpan="3"
+               HorizontalOptions="Start"
+               LineBreakMode="WordWrap"
+               Text="{Binding Answer}"/>
+        
+        
+
+    </Grid>
+</ContentPage>
